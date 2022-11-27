@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:myev_app/utils/text_helper.dart';
 
 import '../utils/screen_util.dart';
+import 'map_keys_screen.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -38,13 +39,18 @@ class _MapScreenState extends State<MapScreen> {
           ],
         ),
         backgroundColor: Colors.white,
-        body: Container(
-          height: Get.height,
-          width: Get.width,
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("images/map_dummy.png"),
-                  fit: BoxFit.cover)),
+        body: InkWell(
+          onTap: () {
+            Get.to(() => const MapKeysScreen());
+          },
+          child: Container(
+            height: Get.height,
+            width: Get.width,
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("images/map_dummy.png"),
+                    fit: BoxFit.cover)),
+          ),
         ));
   }
 }

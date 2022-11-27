@@ -5,6 +5,7 @@ import 'package:myev_app/utils/text_helper.dart';
 import 'package:myev_app/widgets/customButton.dart';
 
 import '../utils/screen_util.dart';
+import 'filter_screen.dart';
 
 class RoutesScreen extends StatefulWidget {
   const RoutesScreen({super.key});
@@ -22,8 +23,13 @@ class _RoutesScreenState extends State<RoutesScreen> {
           elevation: 0.0,
           leading: Padding(
             padding: const EdgeInsets.all(15.0),
-            child: Image.asset(
-              "images/filter_icon.png",
+            child: InkWell(
+              onTap: () {
+                Get.to(() => StepperDemo());
+              },
+              child: Image.asset(
+                "images/filter_icon.png",
+              ),
             ),
           ),
           centerTitle: true,

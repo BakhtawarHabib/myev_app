@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:myev_app/forgotPassword/forgot_password.dart';
 import 'package:myev_app/map_screen/map_screen.dart';
+import 'package:myev_app/setting_screen/settings_more_screens/featureRequestScreens/my_chat_ev.dart';
 import 'package:myev_app/utils/color_manager.dart';
 import '../list_screen/list_screen.dart';
 import '../route_screen/routes_screen.dart';
+import '../setting_screen/setting_screen.dart';
 import '../utils/screen_util.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
+  // ignore: prefer_const_constructors_in_immutables
   CustomBottomNavigationBar({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _CustomBottomNavigationBarState createState() =>
       _CustomBottomNavigationBarState();
 }
@@ -21,8 +25,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     const MapScreen(),
     const ListsScreen(),
     const RoutesScreen(),
-    const ForgotPassword(),
-    const ForgotPassword()
+    const MyChatEv(),
+    const SettingScreen()
   ];
 
   void _selectScreen(int index) {

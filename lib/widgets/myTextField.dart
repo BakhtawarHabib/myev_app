@@ -6,17 +6,20 @@ import '../utils/screen_util.dart';
 class MyTextField extends StatefulWidget {
   String errorText;
   String hintText;
-
+  Color? hintTextColor;
+  Color? underLineColor;
   var controller;
   bool? passVlidate;
   bool? obscureTextValue;
-  MyTextField({
-    required this.errorText,
-    this.controller,
-    this.passVlidate,
-    this.obscureTextValue,
-    required this.hintText,
-  });
+
+  MyTextField(
+      {required this.errorText,
+      this.controller,
+      this.passVlidate,
+      this.obscureTextValue,
+      required this.hintText,
+      this.hintTextColor,
+      this.underLineColor});
 
   @override
   State<MyTextField> createState() => _MyTextFieldState();
@@ -29,12 +32,15 @@ class _MyTextFieldState extends State<MyTextField> {
       controller: widget.controller,
       obscureText: widget.obscureTextValue ?? false,
       decoration: InputDecoration(
-          border: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffC2BEBE))),
-          enabledBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffC2BEBE))),
-          focusedBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0xffC2BEBE))),
+          border: UnderlineInputBorder(
+              borderSide: BorderSide(
+                  color: widget.underLineColor ?? const Color(0xffC2BEBE))),
+          enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                  color: widget.underLineColor ?? const Color(0xffC2BEBE))),
+          focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                  color: widget.underLineColor ?? const Color(0xffC2BEBE))),
           suffixIcon: widget.passVlidate == true
               ? GestureDetector(
                   onTap: () {
@@ -60,8 +66,9 @@ class _MyTextFieldState extends State<MyTextField> {
               : null,
           prefixIconColor: ColorManager.greenappColor,
           hintText: widget.hintText,
-          hintStyle:
-              TextStyle(fontSize: 15.sp, color: const Color(0xffC2BEBE))),
+          hintStyle: TextStyle(
+              fontSize: 15.sp,
+              color: widget.hintTextColor ?? const Color(0xffC2BEBE))),
       validator: (value) {
         if (value == null || value.isEmpty) {
           return widget.errorText;

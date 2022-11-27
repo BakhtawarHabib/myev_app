@@ -9,11 +9,12 @@ class CustomButton extends StatelessWidget {
   String buttonText;
   VoidCallback onTap;
   double radius;
-  CustomButton({
-    required this.buttonText,
-    required this.onTap,
-    required this.radius,
-  });
+  FontWeight? fontWeight;
+  CustomButton(
+      {required this.buttonText,
+      required this.onTap,
+      required this.radius,
+      this.fontWeight});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,7 @@ class CustomButton extends StatelessWidget {
               style: TextStyle(
                 color: ColorManager.white,
                 fontSize: 15.sp,
-                fontWeight: FontWeight.bold,
+                fontWeight: fontWeight ?? FontWeight.bold,
               )),
         ));
   }

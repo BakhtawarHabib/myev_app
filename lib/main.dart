@@ -25,9 +25,19 @@ class MyApp extends StatelessWidget {
             title: 'Myev App',
             themeMode: ThemeMode.light,
             theme: ThemeData(
-              textTheme: const TextTheme(),
-              fontFamily: "Poppins",
-            ),
+                inputDecorationTheme: const InputDecorationTheme(
+                  focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: ColorManager.primaryColor)),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: ColorManager.primaryColor),
+                  ),
+                  // border: UnderlineInputBorder(
+                  //   borderSide: BorderSide(color: ColorManager.primaryColor),
+                  // ),
+                ),
+                textTheme: const TextTheme(),
+                fontFamily: "Poppins",
+                scaffoldBackgroundColor: const Color(0xffFFFFFF)),
             home: const SplashScreen(),
           );
         });
